@@ -26,6 +26,7 @@ export default class ScrollSuave {
     });
   }
 
+  // Adicionando novas alterações dentro da minha nova breach
   init() {
     if (this.linksInternos.length) {
       this.addLinkEvent();

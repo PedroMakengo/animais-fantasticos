@@ -4,7 +4,6 @@ export default class TabNav {
     this.tabContent = document.querySelectorAll(content);
   }
 
-
   // Função para ativar o tab
   activeTab(index) {
     // Percorrendo todas as section e removendo a class ativo

@@ -1,27 +1,32 @@
-export default function initTabNav() {
-  const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
-  const tabContent = document.querySelectorAll('[data-tab="content"] section');
+export default class TabNav {
+  constructor(menu, content) {
+    this.tabMenu = document.querySelectorAll(menu);
+    this.tabContent = document.querySelectorAll(content);
+  }
+
 
   // Função para ativar o tab
-  function activeTab(index) {
+  activeTab(index) {
     // Percorrendo todas as section e removendo a class ativo
-    tabContent.forEach((section) => {
+    this.tabContent.forEach((section) => {
       section.classList.remove('ativo');
     });
     // Adicionando a class ativo na section de acordo ao index da imagem
-    const direcao = tabContent[index].dataset.anime;
-    tabContent[index].classList.add('ativo', direcao);
+    const direcao = this.tabContent[index].dataset.anime;
+    this.tabContent[index].classList.add('ativo', direcao);
   }
 
-  if (tabMenu.length && tabContent.length) {
-    tabContent[0].classList.add('ativo');
-
-    // Percorrendo todas imagens como tab e usar o index destas imagens
-    // como parametro da minha função
-    tabMenu.forEach((itemMenu, index) => {
-      itemMenu.addEventListener('click', () => {
-        activeTab(index);
-      });
+  addTabNavEvent() {
+    this.tabMenu.forEach((itemMenu, index) => {
+      itemMenu.addEventListener('click', () => this.activeTab(index));
     });
+  }
+
+
+  init() {
+    if (this.tabMenu.length && this.tabContent.length) {
+      this.activeTab(0);
+      this.addTabNavEvent();
+    }
   }
 }

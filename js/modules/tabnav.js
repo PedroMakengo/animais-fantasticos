@@ -2,19 +2,19 @@ export default class TabNav {
   constructor(menu, content) {
     this.tabMenu = document.querySelectorAll(menu);
     this.tabContent = document.querySelectorAll(content);
+    this.activeClass = 'ativo';
   }
 
-  // Função para ativar o tab
+  // Ativa a tab de acordo com o index da mesma
   activeTab(index) {
-    // Percorrendo todas as section e removendo a class ativo
     this.tabContent.forEach((section) => {
-      section.classList.remove('ativo');
+      section.classList.remove(this.activeClass);
     });
-    // Adicionando a class ativo na section de acordo ao index da imagem
     const direcao = this.tabContent[index].dataset.anime;
-    this.tabContent[index].classList.add('ativo', direcao);
+    this.tabContent[index].classList.add(this.activeClass, direcao);
   }
 
+  // Adiciona os eventos nas tabs
   addTabNavEvent() {
     this.tabMenu.forEach((itemMenu, index) => {
       itemMenu.addEventListener('click', () => this.activeTab(index));
@@ -23,6 +23,7 @@ export default class TabNav {
 
   init() {
     if (this.tabMenu.length && this.tabContent.length) {
+      // ativar primeiro item
       this.activeTab(0);
       this.addTabNavEvent();
     }

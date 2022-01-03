@@ -25,12 +25,9 @@ modal.init();
 const tooltip = new Tooltip('[data-tooltip]');
 tooltip.init();
 
-initAnimacaoScroll();
-// initTabNav();
-// initModal();
-// initTooltip();
 initDropdownMenu();
 initMenuMobile();
 initFuncionamento();
 initFetchAnimais();
 initFetchBitcoin();
+initAnimacaoScroll();

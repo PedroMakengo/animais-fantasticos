@@ -1,7 +1,6 @@
 export default class ScrollSuave {
   constructor(links, options) {
     this.linksInternos = document.querySelectorAll(links);
-
     if (options === undefined) {
       this.options = { behavior: 'smooth', block: 'start' };
     } else {
@@ -12,11 +11,9 @@ export default class ScrollSuave {
   }
 
   scrollToSection(event) {
-    console.log(this);
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');
     const section = document.querySelector(href);
-
     section.scrollIntoView(this.options);
   }
 
@@ -26,7 +23,6 @@ export default class ScrollSuave {
     });
   }
 
-  // Adicionando novas alterações dentro da minha nova breach
   init() {
     if (this.linksInternos.length) {
       this.addLinkEvent();

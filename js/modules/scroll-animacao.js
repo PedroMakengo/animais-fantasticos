@@ -5,8 +5,7 @@ export default function initAnimacaoScroll() {
   function animaScroll() {
     sections.forEach((section) => {
       const sectionTop = section.getBoundingClientRect().top;
-      const isSectionVisible = sectionTop - windowMetade < 0;
-
+      const isSectionVisible = (sectionTop - windowMetade) < 0;
       if (isSectionVisible) {
         section.classList.add('ativo');
       } else if (section.classList.contains('ativo')) {
@@ -14,8 +13,8 @@ export default function initAnimacaoScroll() {
       }
     });
   }
-
-  animaScroll();
-
-  window.addEventListener('scroll', animaScroll);
+  if (sections.length) {
+    animaScroll();
+    window.addEventListener('scroll', animaScroll);
+  }
 }

@@ -1,18 +1,18 @@
 [
   {
-    "space": "Lobos",
+    "specie": "Lobos",
     "total": 4874
   },
   {
-    "space": "Raposas",
+    "specie": "Raposas",
     "total": 5374
   },
   {
-    "space": "Esquilos",
+    "specie": "Esquilos",
     "total": 12340
   },
   {
-    "space": "Ursos",
+    "specie": "Ursos",
     "total": 230
   }
 ]
